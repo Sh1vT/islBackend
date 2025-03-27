@@ -160,7 +160,7 @@ async def websocket_endpoint(websocket: WebSocket):
 
     try:
         while True:
-            data = await asyncio.wait_for(websocket.receive_bytes(), timeout=2.0)
+            data = await asyncio.wait_for(websocket.receive_bytes(), timeout=15.0)
             user_state = user_states[websocket]
             user_state["fc"] += 1
             np_arr = np.frombuffer(data, np.uint8)
